@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - main
+    schedule:
+        - cron: "0 0 */2 * *"
     workflow_dispatch:
 
 jobs:
@@ -16,7 +18,7 @@ jobs:
       - name: markdown-link-check
         uses: gaurav-nelson/github-action-markdown-link-check@1.0.15
 
-      - run: gh issue create --title "Deadlinks in markdown detected" --body "Check error log for deadlink(s)\:\ ${{ github.SERVER_URL }}/${{ github.REPOSITORY }}/actions/runs/${{ github.RUN_ID }}"
+      - run: gh issue create --title "Deadlinks in markdown detected" --body "Check error log for deadlink(s):\ ${{ github.SERVER_URL }}/${{ github.REPOSITORY }}/actions/runs/${{ github.RUN_ID }}"
         if: failure()
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
