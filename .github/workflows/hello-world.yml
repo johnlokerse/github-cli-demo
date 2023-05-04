@@ -1,0 +1,7 @@
+name: Triggered with GitHub CLI
+
+on:
+    workflow_run:
+
+jobs:
+    

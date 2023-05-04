@@ -1,0 +1,28 @@
+name: List my Resource Groups in a GitHub Issue
+
+on:
+    workflow_run:
+
+env:
+  rgName: "rg-githubactions-demo"
+  webAppName: "webapp-euw-githubactionsdemo"
+
+jobs:
+  create-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_SECRET }}
+
+      - name: Run create-resources.sh
+        uses: Azure/CLI@v1
+        with:
+          azcliversion: 2.48.1
+          inlineScript: |
+            az group list --query "[?contains(name, 'github')]" --output table > groups
+            gh issue create --title "Resource group overview" --body-file groups

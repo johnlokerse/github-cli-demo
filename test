@@ -1,0 +1,5 @@
+Name                Location
+------------------  ----------
+rg-github-cli       westeurope
+rg-github-cli-prod  westeurope
+rg-github-cli-test  eastus
