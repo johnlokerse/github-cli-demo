@@ -16,7 +16,7 @@ jobs:
       - name: markdown-link-check
         uses: gaurav-nelson/github-action-markdown-link-check@1.0.15
 
-      - run: gh issue create --title "Deadlinks in markdown detected" --body "Check action run: https://github.com/johnlokerse/github-cli-demo/actions/runs/${{ github.GITHUB_RUN_ID }}"
+      - run: gh issue create --title "Deadlinks in markdown detected" --body "Check action run: https://github.com/johnlokerse/github-cli-demo/actions/runs/${{ vars.GITHUB_RUN_ID }}"
         if: failure()
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
