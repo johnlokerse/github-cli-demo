@@ -1,7 +1,12 @@
 name: Triggered with GitHub CLI
 
 on:
-    workflow_run:
+    workflow_dispatch:
 
 jobs:
-    
+  say-hello-world:
+    runs-on: windows-latest
+
+    steps:
+      - name: HelloWorld
+        run: echo "Hello World!"

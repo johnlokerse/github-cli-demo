@@ -1,15 +1,13 @@
 name: List my Resource Groups in a GitHub Issue
 
 on:
-    workflow_run:
+    workflow_dispatch:
 
 jobs:
   create-issue:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
-
       - name: Azure Login
         uses: Azure/login@v1
         with:
