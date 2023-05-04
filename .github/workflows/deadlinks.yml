@@ -1,0 +1,20 @@
+name: Check my markdown for deadlinks
+
+on:
+    workflow_dispatch:
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: markdown-link-check
+        continue-on-error: true
+        uses: gaurav-nelson/github-action-markdown-link-check@1.0.15
+
+      - run: gh issue create --title "Deadlinks in markdown detected" --body-file groups
+        if: failure()
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
