@@ -20,3 +20,5 @@ jobs:
           inlineScript: |
             az group list --query "[?contains(name, 'github')]" --output table > groups
             gh issue create --title "Resource group overview" --body-file groups
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
