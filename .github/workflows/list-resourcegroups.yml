@@ -3,12 +3,8 @@ name: List my Resource Groups in a GitHub Issue
 on:
     workflow_run:
 
-env:
-  rgName: "rg-githubactions-demo"
-  webAppName: "webapp-euw-githubactionsdemo"
-
 jobs:
-  create-and-deploy:
+  create-issue:
     runs-on: windows-latest
 
     steps:
