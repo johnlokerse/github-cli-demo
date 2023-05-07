@@ -11,4 +11,4 @@ jobs:
       - name: HelloWorld
         run: |
           echo "Hello World!"
-          sleep 5
+          sleep 10
