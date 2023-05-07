@@ -1,3 +1,3 @@
 # github-cli-demo
 
-[Rubicon website](https://rubiconn.nl)
+[Rubicon website](https://rubicon.nl)
